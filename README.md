@@ -6,7 +6,7 @@ This repository creates a [Docker](https://www.docker.com/) image of a standalon
 
 ## Usage
 
-The easiest is to use [docker-compose](https://docs.docker.com/compose/), I provide a file in the `exmaples` folder:
+The easiest is to use [docker-compose](https://docs.docker.com/compose/), I provide a file in the `examples` folder:
 
 ```
 ~$ wget https://raw.githubusercontent.com/mvisonneau/docker-generatedata/master/examples/docker-compose.yml

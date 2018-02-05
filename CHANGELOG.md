@@ -13,5 +13,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added CHANGELOG
 - Added LICENSE
 
-[Unreleased]: https://github.com/mvisonneau/strongbox/compare/3.2.8...HEAD
-[3.2.8]: https://github.com/mvisonneau/strongbox/tree/3.2.8
+[Unreleased]: https://github.com/mvisonneau/docker-generatedata/compare/3.2.8...HEAD
+[3.2.8]: https://github.com/mvisonneau/docker-generatedata/tree/3.2.8
