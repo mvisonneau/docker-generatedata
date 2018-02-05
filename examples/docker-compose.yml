@@ -1,0 +1,18 @@
+version: '3'
+services:
+  generatedata:
+    image: mvisonneau/generatedata:latest
+    environment:
+      GD_DB_HOSTNAME: mysql
+      GD_DB_NAME: generatedata
+      GD_DB_USERNAME: root
+      GD_DB_PASSWORD: UnSecUr3dPassW0rd
+    ports:
+      - 8000:80
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: UnSecUr3dPassW0rd
+      MYSQL_DATABASE: generatedata
