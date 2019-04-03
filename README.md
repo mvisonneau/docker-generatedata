@@ -21,6 +21,7 @@ You can use the following environment variables in order to configure the contai
 
 Name | Required | Description
 --- | --- | ---
+**GD_API_ENABLED**     | *false* | Whether to enable the API or not (default: **true**)
 **GD_DB_HOSTNAME**     | *true*  | MySQL database endpoint
 **GD_DB_NAME**         | *true*  | MySQL database name
 **GD_DB_USERNAME**     | *true*  | MySQL database user
