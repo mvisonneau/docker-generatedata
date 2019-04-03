@@ -1,8 +1,8 @@
-FROM php:7.2-fpm-alpine3.7
+FROM php:7.3-fpm-alpine3.9
 MAINTAINER Maxime VISONNEAU <maxime.visonneau@gmail.com>
 
 ENV GENERATEDATA_VERSION '3.2.8'
-ENV CONFD_VERSION        '0.15.0'
+ENV CONFD_VERSION        '0.16.0'
 
 WORKDIR /opt/generatedata
 
