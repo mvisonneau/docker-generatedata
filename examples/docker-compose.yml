@@ -6,7 +6,6 @@ services:
       GD_DB_HOSTNAME: mysql
       GD_DB_NAME: generatedata
       GD_DB_USERNAME: root
-      GD_DB_PASSWORD: UnSecUr3dPassW0rd
     ports:
       - 8000:80
     links:
@@ -14,5 +13,5 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: UnSecUr3dPassW0rd
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
       MYSQL_DATABASE: generatedata
