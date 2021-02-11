@@ -40,25 +40,14 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build and publish the image (latest)
+      - name: Build and publish the images
         run: |
-          docker buildx build \
-            --tag docker.io/mvisonneau/generatedata:latest \
-            --tag ghcr.io/mvisonneau/generatedata:latest \
+          export TAG=${GITHUB_REF##*/}
+          docker buildx build --push \
+            --tag docker.io/mvisonneau/generatedata:${TAG/main/latest} \
+            --tag ghcr.io/mvisonneau/generatedata:${TAG/main/latest} \
             --platform linux/amd64,linux/arm64 \
             .
-          docker push docker.io/mvisonneau/generatedata:latest
-          docker push ghcr.io/mvisonneau/generatedata:latest
-
-      - name: Build and publish the image (tagged)
-        if: github.ref != 'refs/heads/main'
-        run: |
-          docker tag docker.io/mvisonneau/generatedata:latest \
-            docker.io/mvisonneau/generatedata:${GITHUB_REF##*/}
-          docker tag docker.io/mvisonneau/generatedata:latest \
-            ghcr.io/mvisonneau/generatedata:${GITHUB_REF##*/}
-          docker push docker.io/mvisonneau/generatedata:${GITHUB_REF##*/}
-          docker push ghcr.io/mvisonneau/generatedata:${GITHUB_REF##*/}
 
       - name: Clear
         if: always()
