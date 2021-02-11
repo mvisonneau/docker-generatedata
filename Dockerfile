@@ -6,8 +6,8 @@ ENV CONFD_VERSION        '0.16.0'
 WORKDIR /opt/generatedata
 
 RUN \
-apk add --no-cache bash supervisor nginx git ;\
-docker-php-ext-install mysqli ;\
+apk add --no-cache bash supervisor nginx git libzip-dev zip ;\
+docker-php-ext-install mysqli zip ;\
 git clone https://github.com/benkeen/generatedata.git /opt/generatedata ;\
 git checkout ${GENERATEDATA_VERSION} ;\
 mkdir -p /run/nginx ;\

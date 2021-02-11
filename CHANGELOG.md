@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Support for exporting data to .xslx
+
 ## [3.4.1] - 2020-03-08
+
+### Changed
 
 - Bumped `generatedata` to **v3.4.1**
 - Bumped `php` to **7.4**
