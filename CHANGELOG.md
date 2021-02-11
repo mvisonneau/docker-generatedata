@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.4.1-1] - 2021-02-11
+
 ### Added
 
+- Support for `linux/arm64` platform
 - Support for exporting data to .xslx
+- Release images to `ghcr.io` on top of `docker.io`
+
+### Changed
+
+- Make the container run as nginx user instead of root
 
 ## [3.4.1] - 2020-03-08
 
@@ -45,7 +53,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added CHANGELOG
 - Added LICENSE
 
-[Unreleased]: https://github.com/mvisonneau/docker-generatedata/compare/3.4.1...HEAD
+[Unreleased]: https://github.com/mvisonneau/docker-generatedata/compare/3.4.1-1...HEAD
+[3.4.1-1]: https://github.com/mvisonneau/docker-generatedata/tree/3.4.1-1
 [3.4.1]: https://github.com/mvisonneau/docker-generatedata/tree/3.4.1
 [3.3.1]: https://github.com/mvisonneau/docker-generatedata/tree/3.3.1
 [3.2.8-1]: https://github.com/mvisonneau/docker-generatedata/tree/3.2.8-1
