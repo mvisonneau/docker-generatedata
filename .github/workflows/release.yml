@@ -45,11 +45,12 @@ jobs:
           docker buildx build \
             --tag docker.io/mvisonneau/generatedata:latest \
             --tag ghcr.io/mvisonneau/generatedata:latest \
-            --platform linux/amd64,linux/arm64
+            --platform linux/amd64,linux/arm64 \
+            .
           docker push docker.io/mvisonneau/generatedata:latest
           docker push ghcr.io/mvisonneau/generatedata:latest
 
-      - name: Build and publish the image (latest)
+      - name: Build and publish the image (tagged)
         if: github.ref != 'refs/heads/main'
         run: |
           docker tag docker.io/mvisonneau/generatedata:latest \
