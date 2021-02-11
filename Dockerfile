@@ -33,4 +33,11 @@ ADD config/nginx.conf /etc/nginx/nginx.conf
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 8080
+
+RUN \
+  chown -R 101:101 /opt/generatedata
+
+# Run as nginx user
+USER 101:101
+
 ENTRYPOINT [ "/docker-entrypoint.sh" ]

@@ -48,8 +48,3 @@ jobs:
             --tag ghcr.io/mvisonneau/generatedata:${TAG/main/latest} \
             --platform linux/amd64,linux/arm64 \
             .
-
-      - name: Clear
-        if: always()
-        run: |
-          rm -f ${HOME}/.docker/config.json
