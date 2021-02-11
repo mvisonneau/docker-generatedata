@@ -1,0 +1,65 @@
+---
+name: release
+
+on:
+  push:
+    branches: [main]
+    tags: ['*']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    env:
+      # Required to be able to push docker manifests
+      DOCKER_CLI_EXPERIMENTAL: 'enabled'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Docker Login
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_PAT }}
+
+      - name: Docker Login
+        uses: docker/login-action@v1
+        with:
+          registry: docker.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and publish the image (latest)
+        run: |
+          docker buildx build \
+            --tag docker.io/mvisonneau/generatedata:latest \
+            --tag ghcr.io/mvisonneau/generatedata:latest \
+            --platform linux/amd64,linux/arm64
+          docker push docker.io/mvisonneau/generatedata:latest
+          docker push ghcr.io/mvisonneau/generatedata:latest
+
+      - name: Build and publish the image (latest)
+        if: github.ref != 'refs/heads/main'
+        run: |
+          docker tag docker.io/mvisonneau/generatedata:latest \
+            docker.io/mvisonneau/generatedata:${GITHUB_REF##*/}
+          docker tag docker.io/mvisonneau/generatedata:latest \
+            ghcr.io/mvisonneau/generatedata:${GITHUB_REF##*/}
+          docker push docker.io/mvisonneau/generatedata:${GITHUB_REF##*/}
+          docker push ghcr.io/mvisonneau/generatedata:${GITHUB_REF##*/}
+
+      - name: Clear
+        if: always()
+        run: |
+          rm -f ${HOME}/.docker/config.json

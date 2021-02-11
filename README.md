@@ -8,12 +8,14 @@ This repository creates a [Docker](https://www.docker.com/) image of a standalon
 
 The easiest is to use [docker-compose](https://docs.docker.com/compose/), I provide a file in the `examples` folder:
 
-```
+```bash
 ~$ wget https://raw.githubusercontent.com/mvisonneau/docker-generatedata/master/examples/docker-compose.yml
 ~$ docker-compose up -d
 ```
 
-In a few seconds/minutes, you will have a fully working version available at [http://localhost:8000](http://localhost:8000)
+In a few seconds/minutes, you will have a fully working version available at [http://localhost:8000](http://localhost:8000).
+
+It currently supports both: `linux/amd64` and `linux/arm64` platforms
 
 ## Configuration
 
@@ -31,16 +33,15 @@ Name | Required | Description
 
 Example using an external database:
 
-```
-~$ docker run -it -p 8000:80 \
+```bash
+~$ docker run -it -p 8080:8080 \
      -e GD_DB_HOSTNAME=myinstance.123456789012.eu-west-1.rds.amazonaws.com \
      -e GD_DB_NAME=generatedata \
      -e GD_DB_USERNAME=foo \
      -e GD_DB_PASSWORD=bar \
-     mvisonneau/generatedata
+     ghcr.io/mvisonneau/generatedata:latest
 ```
 
 ## Contribute
-
 
 Contributions are more than welcome! Feel free to submit a [PR](https://github.com/mvisonneau/docker-generatedata/pulls).
