@@ -13,5 +13,5 @@ export GD_API_ENABLED=${GD_API_ENABLED:-"true"}
 echo "-> configuring application"
 /usr/local/bin/confd -onetime -backend env
 
-echo "-> starting php-fpm and nginx"
+echo "-> starting node and nginx"
 /usr/bin/supervisord -n -c /etc/supervisord.conf

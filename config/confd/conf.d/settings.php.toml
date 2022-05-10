@@ -1,3 +1,0 @@
-[template]
-src = "settings.php.tmpl"
-dest = "/opt/generatedata/settings.php"

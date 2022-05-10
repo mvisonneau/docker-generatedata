@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## Changed
+
+- Support latest unreleased version of benkeen/generatedata (v4) refactored upon nodejs instead of PHP.
+
 ## [3.4.1-1] - 2021-02-11
 
 ### Added
